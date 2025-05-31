@@ -95,7 +95,9 @@
                                         {{ ucfirst($mac->type) }}
                                     </span>
                                 </td>
-                                <td>{{ $mac->description ?? '-' }}</td>
+                                <td>
+                                    {{ Str::limit($mac->description, 50, '...') }}
+                                </td>
                                 <td>
                                     <a href="{{ route('mac-addresses.show', $mac->id) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-eye"></i>

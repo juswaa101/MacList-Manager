@@ -74,11 +74,17 @@
 
 @push('scripts')
     <script>
-        $(document).ready(function() {
-            // Optional: Live character counter for the description field
-            $('#description').on('input', function() {
-                const len = $(this).val().length;
-                $('#description-counter').text(`${len} / 255 characters`);
+        $(document).ready(function () {
+            const $description = $('#description');
+            const len = '{{ strlen($macAddress->description) }}';
+
+            // Set initial character count on page load
+            $('#description-counter').text(`${len} / 255 characters`);
+
+            // Update count live on input
+            $description.on('input', function () {
+                const currentLength = $(this).val().length;
+                $('#description-counter').text(`${currentLength} / 255 characters`);
             });
         });
     </script>

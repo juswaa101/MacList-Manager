@@ -43,7 +43,9 @@
         <div class="mb-3">
             <label class="form-label fw-bold">Description:</label>
             <div class="form-control-plaintext">
+               <p style="word-wrap: break-word;">
                 {{ $macAddress->description ?? '-' }}
+                </p>    
             </div>
         </div>
 
